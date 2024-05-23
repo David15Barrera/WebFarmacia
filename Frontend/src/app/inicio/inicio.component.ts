@@ -7,5 +7,9 @@ import { Router } from '@angular/router';
 })
 export class InicioComponent {
 
+  isMenuOpen = false; // Variable para controlar si el menú está abierto o cerrado
 
+  toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen; // Cambiar el estado del menú al hacer clic en el botón de menú
+  }
 }
