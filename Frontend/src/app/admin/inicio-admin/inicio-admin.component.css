@@ -52,7 +52,7 @@
 }
 
 .main-content {
-    margin-left: 250px; /* Ancho de la barra lateral */
+    margin-left: 150px; /* Ancho de la barra lateral */
     padding: 0;
     width: 100%;
     overflow-y: auto;
@@ -112,7 +112,7 @@
 
 .content {
     padding: 60px 20px;
-    margin-top: 50px; /* Ajuste para la barra de navegación superior */
+    margin-top: 5px; /* Ajuste para la barra de navegación superior */
 }
 
 h1 {

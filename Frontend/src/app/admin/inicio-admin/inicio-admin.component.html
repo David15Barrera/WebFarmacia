@@ -4,15 +4,15 @@
         <h2>EPI Farmacia</h2>
     </div>
     <ul class="nav-list">
-        <li><a href="#"><i class="fas fa-box"></i> Productos</a></li>
-        <li><a href="#"><i class="fas fa-plus-square"></i> Nuevos Productos</a></li>
-        <li><a href="#"><i class="fas fa-shopping-cart"></i> Ventas</a></li>
-        <li><a href="#"><i class="fas fa-file-invoice"></i> Facturas</a></li>
-        <li><a href="#"><i class="fas fa-chart-line"></i> Reportes</a></li>
-        <li><a href="#"><i class="fas fa-users"></i> Usuarios</a></li>
-        <li><a href="#"><i class="fas fa-user-friends"></i> Clientes</a></li>
-        <li><a href="#"><i class="fas fa-store"></i> Tiendas</a></li>
-        <li><a href="#"><i class="fas fa-cogs"></i> Configuración</a></li>
+        <li><a routerLink="/admin/productos"><i class="fas fa-box"></i> Productos</a></li>
+        <li><a routerLink="/admin/addproductos"><i class="fas fa-plus-square"></i> Nuevos Productos</a></li>
+        <li><a routerLink="/admin/ventas"><i class="fas fa-shopping-cart"></i> Ventas</a></li>
+        <li><a routerLink="/admin/facturas"><i class="fas fa-file-invoice"></i> Facturas</a></li>
+        <li><a routerLink="/admin/reportes"><i class="fas fa-chart-line"></i> Reportes</a></li>
+        <li><a routerLink="/admin/usuario"><i class="fas fa-users"></i> Usuarios</a></li>
+        <li><a routerLink="/admin/clientes"><i class="fas fa-user-friends"></i> Clientes</a></li>
+        <li><a routerLink="/admin/tiendas"><i class="fas fa-store"></i> Tiendas</a></li>
+        <li><a routerLink="/admin/configuracion"><i class="fas fa-cogs"></i> Configuración</a></li>
     </ul>
 </div>
 <div class="main-content">
@@ -20,12 +20,11 @@
         <label for="menu-toggle" class="menu-btn"><i class="fas fa-bars"></i></label>
         <span class="user-name">Usuario Conectado</span>
         <div class="nav-links">
-            <a href="#" class="nav-link"><i class="fas fa-box"></i> Productos</a>
+            <a routerLink="/admin/productos" class="nav-link"><i class="fas fa-box"></i> Productos</a>
             <a href="#" class="nav-link"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
         </div>
     </div>
     <div class="content">
-        <h1>Bienvenido a la aplicación</h1>
-        <p>Contenido principal aquí...</p>
+        <router-outlet></router-outlet>
     </div>
 </div>

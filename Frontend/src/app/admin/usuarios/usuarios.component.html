@@ -1,0 +1,43 @@
+<div class="container">
+    <h2>Gestión de Usuarios</h2>
+    <input type="text" placeholder="Buscar usuario..." (input)="onSearch($event)" class="search-box">
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of filteredUsers">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button class="btn edit-btn" (click)="openEditModal(user)">Editar</button>
+            <button class="btn delete-btn" (click)="deleteUser(user.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Modal para editar usuario -->
+  <div id="editModal" class="modal" [class.show]="isModalOpen">
+    <div class="modal-content">
+      <span class="close-btn" (click)="closeEditModal()">&times;</span>
+      <h2>Editar Usuario</h2>
+      <form (ngSubmit)="saveChanges()">
+        <label for="userId">ID</label>
+        <input type="text" id="userId" name="userId" readonly>
+        <label for="userName">Nombre</label>
+        <input type="text" id="userName" name="userName" required>
+        <label for="userEmail">Email</label>
+        <input type="email" id="userEmail" name="userEmail" required>
+        <button type="submit" class="btn">Guardar Cambios</button>
+      </form>
+    </div>
+  </div>
+  
