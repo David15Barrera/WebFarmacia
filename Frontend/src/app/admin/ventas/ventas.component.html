@@ -1,0 +1,59 @@
+<div class="container">
+    <h1>Registrar Venta</h1>
+
+    <!-- Detalles de la Venta -->
+    <div class="sale-details">
+        <h2>Detalles de la Venta</h2>
+        <form id="salesForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="idUsuario">ID de Usuario</label>
+                    <input type="text" id="idUsuario" name="idUsuario" required>
+                </div>
+                <div class="form-group">
+                    <label for="idCliente">ID de Cliente</label>
+                    <input type="text" id="idCliente" name="idCliente" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fechaVentas">Fecha de Venta</label>
+                    <input type="date" id="fechaVentas" name="fechaVentas" required>
+                </div>
+                <div class="form-group">
+                    <label for="hora">Hora</label>
+                    <input type="time" id="hora" name="hora" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="total">Total</label>
+                    <input type="number" step="0.01" id="total" name="total" required>
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <input type="text" id="estado" name="estado">
+                </div>
+            </div>
+            <div class="form-row">
+                <button type="button" class="btn btn-primary" onclick="addProduct()">Agregar Producto</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Productos Seleccionados -->
+    <div class="selected-products">
+        <h2>Productos Seleccionados</h2>
+        <div id="productList" class="product-list">
+            <!-- Aquí se mostrarán los productos seleccionados -->
+        </div>
+        <div class="form-actions">
+            <button type="button" class="btn btn-danger" onclick="clearProductList()">Limpiar Lista</button>
+        </div>
+    </div>
+    
+    <!-- Botón para Guardar Venta -->
+    <div class="form-actions">
+        <button type="submit" form="salesForm" class="btn btn-primary">Guardar Venta</button>
+    </div>
+</div>
