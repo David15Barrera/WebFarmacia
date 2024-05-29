@@ -5,7 +5,14 @@
       <thead>
         <tr>
           <th>ID</th>
+          <th>DPI</th>
+          <th>NIT</th>
           <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Dirección</th>
+          <th>Teléfono</th>
+          <th>Género</th>
+          <th>Cargo</th>
           <th>Email</th>
           <th>Acciones</th>
         </tr>
@@ -13,7 +20,14 @@
       <tbody>
         <tr *ngFor="let user of filteredUsers">
           <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
+          <td>{{ user.dpiUser }}</td>
+          <td>{{ user.nitUserDatos }}</td>
+          <td>{{ user.nombreUser }}</td>
+          <td>{{ user.apellidoUser }}</td>
+          <td>{{ user.direccionUser }}</td>
+          <td>{{ user.telefonoUser }}</td>
+          <td>{{ user.genero }}</td>
+          <td>{{ user.cargoUser }}</td>
           <td>{{ user.email }}</td>
           <td>
             <button class="btn edit-btn" (click)="openEditModal(user)">Editar</button>
@@ -32,10 +46,34 @@
       <form (ngSubmit)="saveChanges()">
         <label for="userId">ID</label>
         <input type="text" id="userId" name="userId" readonly>
-        <label for="userName">Nombre</label>
-        <input type="text" id="userName" name="userName" required>
+        
+        <label for="dpiUser">DPI</label>
+        <input type="text" id="dpiUser" name="dpiUser" required>
+        
+        <label for="nitUserDatos">NIT</label>
+        <input type="text" id="nitUserDatos" name="nitUserDatos" required>
+        
+        <label for="nombreUser">Nombre</label>
+        <input type="text" id="nombreUser" name="nombreUser" required>
+        
+        <label for="apellidoUser">Apellido</label>
+        <input type="text" id="apellidoUser" name="apellidoUser" required>
+        
+        <label for="direccionUser">Dirección</label>
+        <input type="text" id="direccionUser" name="direccionUser">
+        
+        <label for="telefonoUser">Teléfono</label>
+        <input type="text" id="telefonoUser" name="telefonoUser" required>
+        
+        <label for="genero">Género</label>
+        <input type="text" id="genero" name="genero">
+        
+        <label for="cargoUser">Cargo</label>
+        <input type="text" id="cargoUser" name="cargoUser">
+        
         <label for="userEmail">Email</label>
         <input type="email" id="userEmail" name="userEmail" required>
+        
         <button type="submit" class="btn">Guardar Cambios</button>
       </form>
     </div>

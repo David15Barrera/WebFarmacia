@@ -1,1 +1,74 @@
-<p>add-productos works!</p>
+<div class="container">
+    <h1>Gestión de Productos</h1>
+    <form id="productForm">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="codProd">Código de Producto</label>
+                <input type="text" id="codProd" name="codProd" required>
+            </div>
+            <div class="form-group">
+                <label for="nameProd">Nombre del Producto</label>
+                <input type="text" id="nameProd" name="nameProd" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="categoria">Categoría</label>
+                <input type="text" id="categoria" name="categoria">
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <input type="text" id="descripcion" name="descripcion">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="provedor">Proveedor</label>
+                <input type="text" id="provedor" name="provedor">
+            </div>
+            <div class="form-group">
+                <label for="marca">Marca</label>
+                <input type="text" id="marca" name="marca">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="componente">Componente</label>
+                <input type="text" id="componente" name="componente">
+            </div>
+            <div class="form-group">
+                <label for="fechaVen">Fecha de Vencimiento</label>
+                <input type="date" id="fechaVen" name="fechaVen">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="idTienda">ID de Tienda</label>
+                <select id="idTienda" name="idTienda">
+                    <option value="1">Tienda 1</option>
+                    <option value="2">Tienda 2</option>
+                    <option value="3">Tienda 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cantidadExistencia">Cantidad en Existencia</label>
+                <input type="number" id="cantidadExistencia" name="cantidadExistencia">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="precioUnitario">Precio Unitario</label>
+                <input type="number" step="0.01" id="precioUnitario" name="precioUnitario">
+            </div>
+            <div class="form-group">
+                <label for="imagen">Imagen del Producto</label>
+                <input type="file" id="imagen" name="imagen">
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Agregar</button>
+            <button type="reset" class="btn btn-secondary">Modificar</button>
+            <button type="button" class="btn btn-danger" onclick="deleteProduct()">Eliminar</button>
+        </div>
+    </form>
+</div>
