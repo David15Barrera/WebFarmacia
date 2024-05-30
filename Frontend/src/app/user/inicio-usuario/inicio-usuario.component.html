@@ -1,0 +1,26 @@
+<input type="checkbox" id="menu-toggle" class="menu-toggle">
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <h2>EPI Farmacia</h2>
+    </div>
+    <ul class="nav-list">
+        <li><a routerLink="/user/productos"><i class="fas fa-box"></i> Productos</a></li>
+        <li><a routerLink="/user/addproductos"><i class="fas fa-plus-square"></i> Nuevos Productos</a></li>
+        <li><a routerLink="/user/ventas"><i class="fas fa-shopping-cart"></i> Ventas</a></li>
+        <li><a routerLink="/user/clientes"><i class="fas fa-user-friends"></i> Clientes</a></li>
+        <li><a routerLink="/user/configuracion"><i class="fas fa-cogs"></i> Configuración</a></li>
+    </ul>
+</div>
+<div class="main-content">
+    <div class="top-nav">
+        <label for="menu-toggle" class="menu-btn"><i class="fas fa-bars"></i></label>
+        <span class="user-name">Usuario Conectado</span>
+        <div class="nav-links">
+            <a routerLink="/user/productos" class="nav-link"><i class="fas fa-box"></i> Productos</a>
+            <a href="#" class="nav-link"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+        </div>
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

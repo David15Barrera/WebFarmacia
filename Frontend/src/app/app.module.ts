@@ -15,6 +15,10 @@ import { VentasComponent } from './admin/ventas/ventas.component';
 import { FacturasComponent } from './admin/facturas/facturas.component';
 import { ReportesComponent } from './admin/reportes/reportes.component';
 import { TiendasComponent } from './admin/tiendas/tiendas.component';
+import { InicioUsuarioComponent } from './user/inicio-usuario/inicio-usuario.component';
+import { ProductosAddComponent } from './user/productos-add/productos-add.component';
+import { ProductosVerComponent } from './productos-ver/productos-ver.component';
+import { InicioepiComponent } from './inicioepi/inicioepi.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { TiendasComponent } from './admin/tiendas/tiendas.component';
     VentasComponent,
     FacturasComponent,
     ReportesComponent,
-    TiendasComponent
+    TiendasComponent,
+    InicioUsuarioComponent,
+    ProductosAddComponent,
+    ProductosVerComponent,
+    InicioepiComponent
   ],
   imports: [
     BrowserModule,

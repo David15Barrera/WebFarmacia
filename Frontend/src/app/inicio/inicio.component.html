@@ -3,8 +3,8 @@
   <div class="menu-toggle" (click)="toggleMenu()">☰</div> <!-- Botón de menú -->
   <ul [class.show-menu]="isMenuOpen"> <!-- Agregar la clase 'show-menu' cuando el menú está abierto -->
       <!-- Listado de elementos del menú -->
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Productos</a></li>
+      <li><a routerLink="/inicioepi" routerLinkActive="active">Inicio</a></li>
+      <li><a routerLink="/productosGeneral" routerLinkActive="active">Productos</a></li>
       <li><a href="#">Nosotros</a></li>
       <li><a href="#">Contacto</a></li>
       <li><a routerLink="/login" routerLinkActive="active" class="active">Login</a></li>

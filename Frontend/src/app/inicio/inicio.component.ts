@@ -12,4 +12,5 @@ export class InicioComponent {
   toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen; // Cambiar el estado del menú al hacer clic en el botón de menú
   }
+  
 }
