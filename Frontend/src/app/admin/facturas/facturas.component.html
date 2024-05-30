@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Gestión de Facturas</h1>
+    <!-- Formulario de búsqueda -->
+    <form id="searchForm">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="searchId">Buscar por ID de Factura</label>
+                <input type="text" id="searchId" name="searchId">
+            </div>
+            <div class="form-group">
+                <label for="startDate">Fecha de Inicio</label>
+                <input type="date" id="startDate" name="startDate">
+            </div>
+            <div class="form-group">
+                <label for="endDate">Fecha de Fin</label>
+                <input type="date" id="endDate" name="endDate">
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-primary" onclick="searchInvoices()">Buscar</button>
+            </div>
+        </div>
+    </form>
+      
+    <!-- Lista de Facturas -->
+    <div class="invoice-list">
+        <h2>Lista de Facturas</h2>
+        <div id="invoiceItems" class="invoice-items">
+            <!-- Aquí se mostrarán las facturas -->
+        </div>
+    </div>
+</div>

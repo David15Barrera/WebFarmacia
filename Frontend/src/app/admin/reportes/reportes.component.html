@@ -1,0 +1,42 @@
+<div class="container">
+    <h1>Reportes</h1>
+
+    <!-- Sección de Reportes de Ventas -->
+    <section class="report-section" id="salesReport">
+        <h2>Reporte de Ventas</h2>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="salesStartDate">Fecha de Inicio</label>
+                <input type="date" id="salesStartDate" [(ngModel)]="salesStartDate">
+            </div>
+            <div class="form-group">
+                <label for="salesEndDate">Fecha de Fin</label>
+                <input type="date" id="salesEndDate" [(ngModel)]="salesEndDate">
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-primary" (click)="generateSalesReport()">Generar Reporte</button>
+            </div>
+        </div>
+        <canvas id="salesChart"></canvas>
+    </section>
+
+    <!-- Sección de Reportes de Productos -->
+    <section class="report-section" id="productsReport">
+        <h2>Reporte de Productos</h2>
+        <canvas id="productsChart"></canvas>
+    </section>
+
+    <!-- Sección de Gestión de Clientes -->
+    <section class="report-section" id="customersReport">
+        <h2>Gestión de Clientes</h2>
+        <div id="topCustomers">
+            <!-- Aquí se mostrarán los clientes que más compran -->
+        </div>
+    </section>
+
+    <!-- Sección de Gestión de Usuarios -->
+    <section class="report-section" id="usersReport">
+        <h2>Gestión de Usuarios</h2>
+        <canvas id="usersChart"></canvas>
+    </section>
+</div>

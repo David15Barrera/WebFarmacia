@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,9 @@ import { AddProductosComponent } from './admin/add-productos/add-productos.compo
 import { UsuariosComponent } from './admin/usuarios/usuarios.component';
 import { ClientesComponent } from './admin/clientes/clientes.component';
 import { VentasComponent } from './admin/ventas/ventas.component';
+import { FacturasComponent } from './admin/facturas/facturas.component';
+import { ReportesComponent } from './admin/reportes/reportes.component';
+import { TiendasComponent } from './admin/tiendas/tiendas.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +26,15 @@ import { VentasComponent } from './admin/ventas/ventas.component';
     AddProductosComponent,
     UsuariosComponent,
     ClientesComponent,
-    VentasComponent
+    VentasComponent,
+    FacturasComponent,
+    ReportesComponent,
+    TiendasComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

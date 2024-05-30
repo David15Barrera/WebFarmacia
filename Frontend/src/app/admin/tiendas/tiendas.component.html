@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>Gestión de Tiendas</h1>
+    <form id="storeForm">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="idTiendas">ID de Tienda</label>
+                <input type="text" id="idTiendas" name="idTiendas" readonly>
+            </div>
+            <div class="form-group">
+                <label for="nombreTienda">Nombre de Tienda</label>
+                <input type="text" id="nombreTienda" name="nombreTienda" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="telefonoTienda">Teléfono</label>
+                <input type="text" id="telefonoTienda" name="telefonoTienda" required>
+            </div>
+            <div class="form-group">
+                <label for="ubicacion">Ubicación</label>
+                <input type="text" id="ubicacion" name="ubicacion" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="descripcionShop">Descripción</label>
+            <textarea id="descripcionShop" name="descripcionShop" rows="4" required></textarea>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="button" class="btn btn-secondary" onclick="updateStore()">Modificar</button>
+            <button type="button" class="btn btn-danger" onclick="deleteStore()">Eliminar</button>
+        </div>
+    </form>
+    <div class="store-list">
+        <h2>Lista de Tiendas</h2>
+        <div id="storeItems" class="store-items">
+            <!-- Aquí se mostrarán las tiendas -->
+        </div>
+    </div>
+</div>
+

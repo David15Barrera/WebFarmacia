@@ -8,6 +8,9 @@ import { AddProductosComponent } from './admin/add-productos/add-productos.compo
 import { UsuariosComponent } from './admin/usuarios/usuarios.component';
 import { ClientesComponent } from './admin/clientes/clientes.component';
 import { VentasComponent } from './admin/ventas/ventas.component';
+import { FacturasComponent } from './admin/facturas/facturas.component';
+import { ReportesComponent } from './admin/reportes/reportes.component';
+import { TiendasComponent } from './admin/tiendas/tiendas.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,8 +22,10 @@ const routes: Routes = [
       { path: 'addproductos', component: AddProductosComponent},
       { path: 'usuario', component: UsuariosComponent},
       { path: 'clientes', component: ClientesComponent},
-      { path: 'ventas', component: VentasComponent}
-      // Agrega otras rutas hijas aquí
+      { path: 'ventas', component: VentasComponent},
+      { path: 'facturas', component: FacturasComponent},
+      { path: 'reportes', component: ReportesComponent},
+      { path: 'tiendas', component: TiendasComponent}
     ]
   },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' }, 
