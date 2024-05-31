@@ -1,9 +1,11 @@
+import { NosotrosComponent } from './nosotros/nosotros.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
 import { ProductosVerComponent } from './productos-ver/productos-ver.component';
 import { InicioepiComponent } from './inicioepi/inicioepi.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 //Administrador
 import { InicioAdminComponent } from './admin/inicio-admin/inicio-admin.component';
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
   { path: 'productosGeneral', component: ProductosVerComponent},
   { path: 'inicioepi', component: InicioepiComponent},
+  { path: 'nosotros', component: NosotrosComponent},
+  { path: 'contacto', component: ContactoComponent},
   { 
     path: 'admin', component: InicioAdminComponent, children: [
       { path: 'productos', component: ProductosComponent },

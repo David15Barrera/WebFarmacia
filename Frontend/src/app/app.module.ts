@@ -19,6 +19,8 @@ import { InicioUsuarioComponent } from './user/inicio-usuario/inicio-usuario.com
 import { ProductosAddComponent } from './user/productos-add/productos-add.component';
 import { ProductosVerComponent } from './productos-ver/productos-ver.component';
 import { InicioepiComponent } from './inicioepi/inicioepi.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { InicioepiComponent } from './inicioepi/inicioepi.component';
     InicioUsuarioComponent,
     ProductosAddComponent,
     ProductosVerComponent,
-    InicioepiComponent
+    InicioepiComponent,
+    NosotrosComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
