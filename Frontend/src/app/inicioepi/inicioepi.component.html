@@ -1,2 +1,48 @@
 <app-inicio></app-inicio>
-<h1>Contenido</h1>
+<div class="carousel-container">
+    <div class="carousel">
+      <div class="carousel-slide" id="slide-1">
+        <img src="../../assets/inicio/EpiFondo1.jpeg" alt="EpiFondo1">
+        <div class="carousel-content">
+          <h2>Servicios</h2>
+          <p>Servicios de gran calidad y mejora farmacéutica</p>
+          <button class="btn">Saber más</button>
+        </div>
+      </div>
+      <div class="carousel-slide" id="slide-2">
+        <img src="../../assets/inicio/EpiFondo2.jpeg" alt="EpiFondo2">
+        <div class="carousel-content">
+          <h2>Medicina</h2>
+          <p>Contamos con gran variedad de medicamentos</p>
+          <button class="btn">Saber más</button>
+        </div>
+      </div>
+      <div class="carousel-slide" id="slide-3">
+        <img src="../../assets/inicio/Epifondo3.jpeg" alt="EpiFondo3">
+        <div class="carousel-content">
+          <h2>Consultas</h2>
+          <p>Generamos consultas para cada paciente</p>
+          <button class="btn">Saber más</button>
+        </div>
+      </div>
+      <div class="carousel-slide" id="slide-4">
+        <img src="../../assets/inicio/EpiFondo4.jpeg" alt="EpiFondo4">
+        <div class="carousel-content">
+          <h2>Comunicación</h2>
+          <p>Comunícate con nosotros</p>
+          <button class="btn">Saber más</button>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <span class="prev" (click)="changeSlide(-1)">&#10094;</span>
+      <span class="next" (click)="changeSlide(1)">&#10095;</span>
+    </div>
+    <div class="carousel-indicators">
+      <span class="dot" [class.active]="currentIndex === 0" (click)="currentSlide(0)"></span>
+      <span class="dot" [class.active]="currentIndex === 1" (click)="currentSlide(1)"></span>
+      <span class="dot" [class.active]="currentIndex === 2" (click)="currentSlide(2)"></span>
+      <span class="dot" [class.active]="currentIndex === 3" (click)="currentSlide(3)"></span>
+    </div>
+  </div>
+  

@@ -10,8 +10,8 @@ body {
   }
   
   .hero {
-    background: linear-gradient(rgba(45, 45, 68, 0.8), rgba(45, 45, 68, 0.8)), url('../../assets/fonts/imagen2.jpeg') no-repeat center center/cover;
-    padding: 200px 20px;
+    background: linear-gradient(rgba(45, 45, 68, 0.8), rgba(45, 45, 68, 0.8)), url('../../assets/inicio/Epifondo3.jpeg') no-repeat center center/cover;
+    padding: 250px 20px;
     color: #fff;
     animation: fadeIn 2s ease-in-out;
   }
