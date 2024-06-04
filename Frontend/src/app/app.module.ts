@@ -21,6 +21,7 @@ import { ProductosVerComponent } from './productos-ver/productos-ver.component';
 import { InicioepiComponent } from './inicioepi/inicioepi.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ContactoComponent } from './contacto/contacto.component';
     ProductosVerComponent,
     InicioepiComponent,
     NosotrosComponent,
-    ContactoComponent
+    ContactoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
