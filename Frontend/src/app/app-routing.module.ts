@@ -49,7 +49,7 @@ const routes: Routes = [
       { path: 'clientes', component: ClientesComponent}
     ]
   },
-  { path: '', redirectTo: '/inicio', pathMatch: 'full' }, 
+  { path: 'inicio', redirectTo: '/inicio', pathMatch: 'full' }, 
 ];
 
 @NgModule({
