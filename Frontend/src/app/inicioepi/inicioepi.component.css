@@ -5,12 +5,16 @@
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(66, 26, 82, 0.5); /* Fondo negro con 50% de opacidad */
+    background: rgba(45, 45, 68, 0.8); /* Fondo semitransparente */
     margin: 0;
     z-index: 1; /* Asegura que el fondo no cubra las flechas de navegación */
+}
+
+.carousel-caption-text {
+    position: relative;
+    top: -100%; /* Ajusta este valor para subir el texto */
 }
 
 .carousel-item img {
@@ -20,7 +24,7 @@
 
 .carousel-control-prev,
 .carousel-control-next {
-    z-index: 2; /* Asegura que las flechas de navegación estén por encima del fondo negro */
+    z-index: 2; /* Asegura que las flechas de navegación estén por encima del fondo */
 }
 
 .text-primary {
@@ -44,4 +48,8 @@
     width: 5px; /* Ajusta la anchura del separador */
     height: 150%; /* Ajusta la altura del separador */
     background-color: #2d2d44; /* Color del separador */
+}
+
+.carousel-caption h2, .carousel-caption h1 {
+    color: #7c03bd; /* Color morado */
 }
