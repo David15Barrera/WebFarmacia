@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 // Configuración de Sequelize
-const sequelize = new Sequelize('FARMACIAEPIWEB', 'root', 'Sistemas1.', {
+const sequelize = new Sequelize('FARMACIAEPIWEB', 'FARMACIAEPIWEB', 'farmaciaEpi2024.', {
     host: 'localhost',
     dialect: 'mysql'
   });
