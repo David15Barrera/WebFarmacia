@@ -16,9 +16,9 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 700px;
+    max-width: 800px;
     margin-left: 15%; /* Mantiene el contenedor a la derecha */
-    margin-top: -5%; /* Asegura que no haya margen superior adicional */
+    margin-top: 0%; /* Asegura que no haya margen superior adicional */
 }
 
 h1 {

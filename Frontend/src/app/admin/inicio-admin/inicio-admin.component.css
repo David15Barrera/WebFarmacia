@@ -21,7 +21,24 @@
     background-color: #6A0DAD; /* Morado */
     font-size: 1.2em;
     font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+    outline: none;  
 }
+
+.sidebar-header a:focus,
+.sidebar-header a:hover,
+.sidebar-header a:active {
+  text-decoration: none;  /* Asegura que no haya subrayado en varios estados */
+  color: inherit;         /* Hereda el color en varios estados */
+  outline: none;          /* Elimina el contorno (outline) en varios estados */
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    padding: 10px;
+    color: #fff; /* Asegúrate de que el color del texto sea el deseado */
+  }
 
 .nav-list {
     list-style-type: none;

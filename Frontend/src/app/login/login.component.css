@@ -1,7 +1,7 @@
 .background {
     background-position: center;
     background-size: cover;
-    min-height: 100vh; /* Cambiado a min-height */
+    min-height: 120vh; /* Cambiado a min-height */
     width: 100%;
     filter: blur(10px);
 }
@@ -38,7 +38,7 @@
 .item {
     background: #3e3e5a;
     text-align: center;
-    width: 100%;
+    width: 120%;
     height: 120%; /* Cambiado de 120% a auto */
 }
 
