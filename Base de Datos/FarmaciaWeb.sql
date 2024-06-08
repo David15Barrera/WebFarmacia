@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS CLIENTE (
     direccion VARCHAR(75),
     municipio VARCHAR(50),
     departamento VARCHAR(50),
-    PRIMARY KEY(dpi)
+    PRIMARY KEY(idclient)
 );
 
 CREATE TABLE IF NOT EXISTS USUARIOS (
@@ -89,13 +89,13 @@ CREATE TABLE IF NOT EXISTS INVENTARIO (
 CREATE TABLE IF NOT EXISTS VENTAS (
     codigoVentas INT AUTO_INCREMENT,
     idUsuario INT,
-    idCliente VARCHAR(100) NOT NULL,
+    idCliente INT,
     fechaVentas DATE,
     hora TIME,
     total DOUBLE,
     estado VARCHAR(225),
     PRIMARY KEY (codigoVentas),
-    FOREIGN KEY (idCliente) REFERENCES CLIENTE(dpi),
+    FOREIGN KEY (idCliente) REFERENCES CLIENTE(idclient),
     FOREIGN KEY (idUsuario) REFERENCES USUARIOS(idUserLog)
 );
 
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS FACTURAS (
     idFacturas INT AUTO_INCREMENT,
     idVentasFac INT,
     idProdFac INT NOT NULL,
-    idClienteFac VARCHAR(100) NOT NULL,
+    idClienteFac INT,
     idUsuarioFac INT,
     totalFac DECIMAL,
     fechaFac DATE,
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS FACTURAS (
     PRIMARY KEY (idFacturas),
     FOREIGN KEY (idVentasFac) REFERENCES VENTAS(codigoVentas),
     FOREIGN KEY (idProdFac) REFERENCES PRODUCTOS(idProducto),
-    FOREIGN KEY (idClienteFac) REFERENCES CLIENTE(dpi),
+    FOREIGN KEY (idClienteFac) REFERENCES CLIENTE(idclient),
     FOREIGN KEY (idUsuarioFac) REFERENCES USUARIOSDATOS(idUsuario)
 );
 
@@ -132,13 +132,13 @@ CREATE TABLE IF NOT EXISTS DEVOLUCIONES (
     codVentasDev INT,
     idProdDev INT NOT NULL,
     idUsuarioDev INT,
-    idClienteDev VARCHAR(100) NOT NULL,
+    idClienteDev INT,
     cantidadDev INT,
     fechaDev DATE,
     horaDev TIME,
     PRIMARY KEY (idDevoluciones),
     FOREIGN KEY (codVentasDev) REFERENCES VENTAS(codigoVentas),
     FOREIGN KEY (idProdDev) REFERENCES PRODUCTOS(idProducto),
-    FOREIGN KEY (idClienteDev) REFERENCES CLIENTE(dpi),
+    FOREIGN KEY (idClienteDev) REFERENCES CLIENTE(idclient),
     FOREIGN KEY (idUsuarioDev) REFERENCES USUARIOS(idUserLog)
 );
