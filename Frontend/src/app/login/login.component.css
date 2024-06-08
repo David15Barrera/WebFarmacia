@@ -1,10 +1,14 @@
 body {
     font-family: 'Raleway', sans-serif;
     background-color: #e7e7e7;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .wrapper {
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     height: 600px;
     position: relative;
     margin: 3% auto;
@@ -13,7 +17,8 @@ body {
 }
 
 .login-text {
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     height: 450px;
     background: linear-gradient(to left, #ab68ca, #de67a3); 
     position: absolute;
@@ -41,17 +46,18 @@ body {
 }
 
 .text hr {
-    width: 10%;
     float: left;
     background-color: #fff;
     font-size: 16px;
+    width: 10%;
 }
 
-.text input {
-    margin-top: 20px;
+.text input[type="text"],
+.text input[type="password"] {
+    margin-top: 30px;
     height: 40px;
-    width: 100%; /* Asegura que los inputs tengan el mismo ancho */
-    max-width: 300px; /* Ancho máximo fijo */
+    width: calc(100% - 40px);
+    margin-left: 0;
     border-radius: 2px;
     border: none;
     background-color: #444;
@@ -62,10 +68,15 @@ body {
     box-sizing: border-box;
 }
 
+.text input[type="password"] {
+    margin-top: 20px;
+}
+
 .text button {
     margin-top: 30px;
     height: 40px;
-    width: 140px;
+    width: 100%;
+    max-width: 140px;
     outline: none;
 }
 
@@ -92,7 +103,8 @@ body {
     border: 2px solid #fff;
     position: absolute;
     bottom: -30px;
-    left: 370px;
+    left: 50%;
+    transform: translateX(-50%);
     color: #fff;
     outline: none;
     cursor: pointer;
@@ -101,7 +113,8 @@ body {
 
 .call-text {
     background-color: #fff;
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     height: 450px;
     position: absolute;
     bottom: 0;
@@ -123,7 +136,8 @@ body {
 
 .call-text button {
     height: 40px;
-    width: 180px;
+    width: 100%;
+    max-width: 180px;
     border: none;
     border-radius: 20px;
     background: linear-gradient(to left, #ab68ca, #de67a3); 
@@ -140,4 +154,84 @@ body {
 
 .expand {
     transform: translateY(300px);
+}
+
+.logo {
+    width: 100%;
+    max-width: 400px; /* Ancho deseado para la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+    margin-bottom: -5px;
+    transition: transform 0.3s ease; /* Animación de transición */
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Cambia el tamaño al 110% cuando el usuario pasa el cursor sobre la imagen */
+    transition: transform 0.5s ease; /* Agrega una transición suave */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+    .wrapper {
+        width: 90%;
+    }
+
+    .login-text, .call-text {
+        padding: 5%;
+    }
+
+    .text a, .text a:visited {
+        font-size: 28px;
+    }
+
+    .text input[type="text"],
+    .text input[type="password"] {
+        width: calc(100% - 20px);
+    }
+
+    .cta {
+        bottom: -20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-text, .call-text {
+        padding: 10%;
+    }
+
+    .text a, .text a:visited {
+        font-size: 24px;
+    }
+
+    .text input[type="text"],
+    .text input[type="password"] {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .text button {
+        width: 100%;
+    }
+
+    .cta {
+        width: 50px;
+        height: 50px;
+    }
+
+    .call-text h1 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-text, .call-text {
+        padding: 15%;
+    }
+
+    .text a, .text a:visited {
+        font-size: 20px;
+    }
+
+    .call-text h1 {
+        font-size: 30px;
+    }
 }
