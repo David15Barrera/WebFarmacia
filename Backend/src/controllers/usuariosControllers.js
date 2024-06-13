@@ -65,6 +65,41 @@ exports.getUsuarioById = async (req, res) => {
   }
 };
 
+exports.getIdUsuarioCargoByNombreContrasena = async (req, res) => {
+  const { nombreUsuario, contrasena } = req.body;
+
+  try {
+    // Buscar usuario por nombre de usuario y contraseña en la tabla Usuario
+    const usuario = await Usuario.findOne({
+      where: {
+        nombreUserL: nombreUsuario,
+        contraUserL: contrasena
+      }
+    });
+
+    if (!usuario) {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+
+    // Buscar información adicional en la tabla UsuarioDatos
+    const usuarioDatos = await UsuarioDatos.findOne({
+      where: {
+        idUsuario: usuario.idUserLog
+      }
+    });
+
+    // Devolver respuesta con id, nombre de usuario y cargo
+    res.json({
+      idUsuario: usuario.idUserLog,
+      nombreUsuario: usuario.nombreUserL,
+      cargoUsuario: usuario.cargoUser, // Tomar cargoUser de la tabla Usuario
+      cargoUsuarioDatos: usuarioDatos ? usuarioDatos.cargoUser : null // Tomar cargoUser de la tabla UsuarioDatos si existe
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 // Eliminar un usuario
 exports.deleteUsuario = async (req, res) => {
   try {
