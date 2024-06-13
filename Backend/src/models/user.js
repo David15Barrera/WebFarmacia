@@ -1,4 +1,4 @@
-const { DataType, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('../config/databases')
 
 const Usuario = sequelize.define('Usuario',{
@@ -11,12 +11,12 @@ const Usuario = sequelize.define('Usuario',{
         type: DataTypes.STRING(225),
         allowNull:false
     },
-    contrUserL: {
+    contraUserL: {
         type: DataTypes.STRING(225),
         allowNull: false
     }
 }, {
-    tableName: 'USUARIO',
+    tableName: 'USUARIOS',
     timestamps: false
 });
 

@@ -1,29 +1,22 @@
 const express = require('express');
-const { Sequelize } = require('sequelize');
+const sequelize = require('./src/config/databases');
+const usuariosRoutes = require('./src/routes/usuario');
+
 const app = express();
 const port = 3000;
 
-// Configuración de Sequelize
-const sequelize = new Sequelize('FARMACIAEPIWEB', 'epiFarmacia', 'farmaciaEpi2024.', {
-    host: 'localhost',
-    dialect: 'mysql'
-  });
-
-  // Middleware para parsear JSON
+// Middleware para parsear JSON
 app.use(express.json());
 
-// Ruta de prueba
-app.get('/', (req, res) => {
-  res.send('¡Bienvenido al sistema de farmacia!');
-});
+// Rutas
+app.use('/usuarios', usuariosRoutes);
 
-//Iniciar el servidor
-app.listen(port, () => {
-  console.log(`Servidor escuchando en htt(localhost:${port}`);
-});
-
-sequelize.authenticate()
+// Iniciar el servidor y conectar a la base de datos
+sequelize.sync()
   .then(() => {
+    app.listen(port, () => {
+      console.log(`Servidor escuchando en http://localhost:${port}`);
+    });
     console.log('Conexión a la base de datos exitosa.');
   })
   .catch(err => {

@@ -5,7 +5,11 @@ const UsuarioDatos = require('../models/userDatos');
 exports.getAllUsuarios = async (req, res) => {
     try{
         const usuarios = await Usuario.findAll();
-        res.json(usuario);
+        const usuariosDatos = await UsuarioDatos.findAll();
+        res.json({
+          usuarios: usuarios,
+          usuariosDatos: usuariosDatos
+        });
     }catch (error){
         res.status(500).json({ error: error.message });
     }
@@ -53,6 +57,8 @@ exports.getUsuarioById = async (req, res) => {
       return res.status(404).json({ error: 'Usuario no encontrado' });
     }
     const usuarioDatos = await UsuarioDatos.findOne({ where: { idUsuario: id } });
+  
+
     res.json({ usuario, usuarioDatos });
   } catch (error) {
     res.status(500).json({ error: error.message });

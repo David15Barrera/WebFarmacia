@@ -1,35 +1,38 @@
-const { DataType, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('../config/databases');
-const Usuario = require('../models/user')
+const Usuario = require('../models/user');
 
 const UsuarioDatos = sequelize.define('UsuarioDatos', {
   idUsuario: {
     type: DataTypes.INTEGER,
-    autoIncrement: true,
-    primaryKey: true
+    primaryKey: true,
+    references: {
+      model: 'USUARIOS',
+      key: 'idUserLog'
+    }
   },
-  dpiUser:{
+  dpiUser: {
     type: DataTypes.STRING(225),
-    unique:true,
+    unique: true,
     allowNull: false
   },
-  nitUserDatos:{
-    type: DataTypes.STRING(225),
-    allowNull: false
-  },
-  nombreUser:{
-    type: DataTypes.STRING(225),
-    allowNull: false
-  },
-  apellidoUser:{
+  nitUserDatos: {
     type: DataTypes.STRING(225),
     allowNull: false
   },
-  direccionUser:{
+  nombreUser: {
+    type: DataTypes.STRING(225),
+    allowNull: false
+  },
+  apellidoUser: {
+    type: DataTypes.STRING(225),
+    allowNull: false
+  },
+  direccionUser: {
     type: DataTypes.STRING(150),
     allowNull: true
   },
-  telefonoUser:{
+  telefonoUser: {
     type: DataTypes.STRING(8),
     allowNull: false
   },
@@ -38,12 +41,12 @@ const UsuarioDatos = sequelize.define('UsuarioDatos', {
     allowNull: true
   },
   cargoUser: {
-    type : DataTypes.STRING(100),
+    type: DataTypes.STRING(100),
     allowNull: true
   }
 }, {
-    tablesName: 'USUARIOSDATOS',
-    timesTamps: false
+  tableName: 'USUARIOSDATOS',
+  timestamps: false
 });
 
 UsuarioDatos.belongsTo(Usuario, { foreignKey: 'idUsuario' });
