@@ -40,6 +40,9 @@ exports.updateUsuario = async (req, res) => {
     }
     await usuario.update({ nombreUserL, contraUserL });
     const usuarioDatos = await UsuarioDatos.findOne({ where: { idUsuario: id } });
+    if(!usuarioDatos){
+      return res.status(404).json({error: 'Datos Usuaradio no encontrado'});
+    }
     await usuarioDatos.update(datos);
     res.json({ usuario, usuarioDatos });
   } catch (error) {
