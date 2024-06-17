@@ -68,11 +68,11 @@ exports.getUsuarioById = async (req, res) => {
   }
 };
 
+// Buscar usuario por nombre de usuario y contraseña en la tabla Usuario
 exports.getIdUsuarioCargoByNombreContrasena = async (req, res) => {
   const { nombreUsuario, contrasena } = req.body;
 
   try {
-    // Buscar usuario por nombre de usuario y contraseña en la tabla Usuario
     const usuario = await Usuario.findOne({
       where: {
         nombreUserL: nombreUsuario,
