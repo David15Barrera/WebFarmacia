@@ -18,8 +18,8 @@ exports.getAllUsuarios = async (req, res) => {
 //Crear un nuevo usuario
 exports.createUsuario = async (req, res) => {
     try {
-      const { nombreUserL, contraUserL, ...datos } = req.body;
-      const usuario = await Usuario.create({ nombreUserL, contraUserL });
+      const { nombreUsuario, contrasenaUsuario, ...datos } = req.body;
+      const usuario = await Usuario.create({ nombreUsuario, contrasenaUsuario });
       datos.idUsuario = usuario.idUserLog;
       const usuarioDatos = await UsuarioDatos.create(datos);
       res.status(201).json({ usuario, usuarioDatos });

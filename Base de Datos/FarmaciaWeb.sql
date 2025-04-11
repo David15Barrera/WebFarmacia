@@ -146,3 +146,15 @@ CREATE TABLE IF NOT EXISTS DEVOLUCIONES (
     FOREIGN KEY (idCliente) REFERENCES CLIENTE(idCliente) ON DELETE SET NULL,
     FOREIGN KEY (idUsuario) REFERENCES USUARIOS(idUserLog) ON DELETE SET NULL
 );
+
+
+--Datos para probar:
+-- Insertar en la tabla USUARIOS
+INSERT INTO USUARIOS (nombreUsuario, contrasenaUsuario) VALUES
+('admin', 'admin123'),
+('user', 'user456');
+
+-- Insertar en la tabla USUARIOSDATOS
+INSERT INTO USUARIOSDATOS (dpiUser, nitUserDatos, nombre, apellido, direccion, telefono, genero, cargo, idUserLog) VALUES
+('1234567890101', '1234567-8', 'admin', 'admin', 'Zona 1, Ciudad', '55551234', 'MASCULINO', 'Administrador', 1),
+('9876543210012', '7654321-9', 'user', 'admin', 'Zona 10, Ciudad', '55556789', 'FEMENINO', 'Secretaria', 2);

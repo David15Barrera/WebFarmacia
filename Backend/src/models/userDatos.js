@@ -6,10 +6,7 @@ const UsuarioDatos = sequelize.define('UsuarioDatos', {
   idUsuario: {
     type: DataTypes.INTEGER,
     primaryKey: true,
-    references: {
-      model: 'USUARIOS',
-      key: 'idUserLog'
-    }
+    autoIncrement: true
   },
   dpiUser: {
     type: DataTypes.STRING(225),
@@ -17,38 +14,46 @@ const UsuarioDatos = sequelize.define('UsuarioDatos', {
     allowNull: false
   },
   nitUserDatos: {
+    type: DataTypes.STRING(100),
+    allowNull: false
+  },
+  nombre: {
     type: DataTypes.STRING(225),
     allowNull: false
   },
-  nombreUser: {
+  apellido: {
     type: DataTypes.STRING(225),
     allowNull: false
   },
-  apellidoUser: {
-    type: DataTypes.STRING(225),
-    allowNull: false
-  },
-  direccionUser: {
+  direccion: {
     type: DataTypes.STRING(150),
     allowNull: true
   },
-  telefonoUser: {
-    type: DataTypes.STRING(8),
-    allowNull: false
-  },
-  genero: {
+  telefono: {
     type: DataTypes.STRING(15),
     allowNull: true
   },
-  cargoUser: {
+  genero: {
+    type: DataTypes.ENUM('MASCULINO', 'FEMENINO', 'OTRO'),
+    allowNull: true
+  },
+  cargo: {
     type: DataTypes.STRING(100),
     allowNull: true
+  },
+  idUserLog: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    references: {
+      model: 'USUARIOS',
+      key: 'idUserLog'
+    }
   }
 }, {
   tableName: 'USUARIOSDATOS',
   timestamps: false
 });
 
-UsuarioDatos.belongsTo(Usuario, { foreignKey: 'idUsuario' });
+UsuarioDatos.belongsTo(Usuario, { foreignKey: 'idUserLog' });
 
 module.exports = UsuarioDatos;
