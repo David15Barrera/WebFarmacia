@@ -17,7 +17,7 @@ sequelize.sync()
     app.listen(port, () => {
       console.log(`Servidor escuchando en http://localhost:${port}`);
     });
-    console.log('Conexión a la base de datos exitosa.');
+    console.log('Conexión a la base de datos exitosa nbb.');
   })
   .catch(err => {
     console.error('No se pudo conectar a la base de datos:', err);

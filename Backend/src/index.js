@@ -24,7 +24,7 @@ app.listen(port, () => {
 
 sequelize.authenticate()
   .then(() => {
-    console.log('Conexión a la base de datos exitosa.');
+    console.log('Conexión a la base de datos exitosaasdasdas.');
   })
   .catch(err => {
     console.error('No se pudo conectar a la base de datos:', err);

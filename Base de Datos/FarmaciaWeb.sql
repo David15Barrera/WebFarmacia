@@ -5,141 +5,144 @@ Base de datos para pagina Web
 */
 
 CREATE SCHEMA IF NOT EXISTS FARMACIAEPIWEB;
-
 USE FARMACIAEPIWEB;
 
+-- Tabla de Clientes
 CREATE TABLE IF NOT EXISTS CLIENTE (
-    idclient INT AUTO_INCREMENT,
+    idCliente INT AUTO_INCREMENT PRIMARY KEY,
     dpi VARCHAR(100),
     nit VARCHAR(100),
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
     direccion VARCHAR(75),
     municipio VARCHAR(50),
-    departamento VARCHAR(50),
-    PRIMARY KEY(idclient)
+    departamento VARCHAR(50)
 );
 
+-- Tabla de Usuarios para Login
 CREATE TABLE IF NOT EXISTS USUARIOS (
     idUserLog INT AUTO_INCREMENT PRIMARY KEY,
-    nombreUserL VARCHAR(225) NOT NULL,
-    contraUserL VARCHAR(225) NOT NULL
+    nombreUsuario VARCHAR(225) NOT NULL,
+    contrasenaUsuario VARCHAR(225) NOT NULL
 );
 
+-- Tabla de Datos de Usuarios
 CREATE TABLE IF NOT EXISTS USUARIOSDATOS (
     idUsuario INT AUTO_INCREMENT PRIMARY KEY,
     dpiUser VARCHAR(225) UNIQUE NOT NULL,
     nitUserDatos VARCHAR(100) NOT NULL,
-    nombreUser VARCHAR(225) NOT NULL,
-    apellidoUser VARCHAR(225) NOT NULL,
-    direccionUser VARCHAR(150),
-    telefonoUser VARCHAR(8) NOT NULL,
-    genero VARCHAR(15),
-    cargoUser VARCHAR(100),
-    FOREIGN KEY (idUsuario) REFERENCES USUARIOS(idUserLog)
+    nombre VARCHAR(225) NOT NULL,
+    apellido VARCHAR(225) NOT NULL,
+    direccion VARCHAR(150),
+    telefono VARCHAR(15),
+    genero ENUM('MASCULINO', 'FEMENINO', 'OTRO') DEFAULT NULL,
+    cargo VARCHAR(100),
+    idUserLog INT,
+    FOREIGN KEY (idUserLog) REFERENCES USUARIOS(idUserLog) ON DELETE SET NULL
 );
 
+-- Tabla de Tiendas
 CREATE TABLE IF NOT EXISTS TIENDAS (
-    idTiendas INT AUTO_INCREMENT,
-    nombreTienda VARCHAR(225),
-    telefonoTienda VARCHAR(255),
+    idTienda INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(225),
+    telefono VARCHAR(15),
     ubicacion VARCHAR(225),
-    descripcionShop VARCHAR(250),
-    PRIMARY KEY (idTiendas)
+    descripcion VARCHAR(250)
 );
 
+-- Tabla de Datos de la Tienda
 CREATE TABLE IF NOT EXISTS DATOSTIENDA (
-    idDatos INT AUTO_INCREMENT,
+    idDatos INT AUTO_INCREMENT PRIMARY KEY,
+    idTienda INT,
     titulo VARCHAR(225),
     subtitulo VARCHAR(225),
-    descripcionT VARCHAR(225),
-    horaInicio VARCHAR(10),
-    horaFinal VARCHAR(5),
-    redes VARCHAR(225),
+    descripcion VARCHAR(225),
+    horaInicio TIME,
+    horaFinal TIME,
+    redesSociales VARCHAR(225),
     direccion VARCHAR(225),
-    PRIMARY KEY (idDatos),
-    FOREIGN KEY (idDatos) REFERENCES TIENDAS(idTiendas)
+    FOREIGN KEY (idTienda) REFERENCES TIENDAS(idTienda) ON DELETE CASCADE
 );
 
+-- Tabla de Productos
 CREATE TABLE IF NOT EXISTS PRODUCTOS (
-    idProducto INT AUTO_INCREMENT,
-    codProd VARCHAR(225) NOT NULL,
-    nameProd VARCHAR(225) NOT NULL,
+    idProducto INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(225) NOT NULL,
+    nombre VARCHAR(225) NOT NULL,
     categoria VARCHAR(225),
     descripcion VARCHAR(225),
-    provedor VARCHAR(225),
+    proveedor VARCHAR(225),
     marca VARCHAR(225),
     componente VARCHAR(225),
-    fechaVen DATE,
-    PRIMARY KEY (idProducto)
+    fechaVencimiento DATE
 );
 
+-- Tabla de Inventario
 CREATE TABLE IF NOT EXISTS INVENTARIO (
-    idInventario INT AUTO_INCREMENT,
+    idInventario INT AUTO_INCREMENT PRIMARY KEY,
     idTienda INT NOT NULL,
     idProducto INT NOT NULL,
     fechaIngreso DATE,
-    cantidadExistencia INT,
-    precioUnitario DOUBLE,
-    PRIMARY KEY (idInventario),
-    FOREIGN KEY (idTienda) REFERENCES TIENDAS(idTiendas),
-    FOREIGN KEY (idProducto) REFERENCES PRODUCTOS(idProducto),
+    cantidad INT,
+    precioUnitario DECIMAL(10,2),
+    FOREIGN KEY (idTienda) REFERENCES TIENDAS(idTienda) ON DELETE CASCADE,
+    FOREIGN KEY (idProducto) REFERENCES PRODUCTOS(idProducto) ON DELETE CASCADE,
     UNIQUE (idTienda, idProducto)
 );
 
+-- Tabla de Ventas
 CREATE TABLE IF NOT EXISTS VENTAS (
-    codigoVentas INT AUTO_INCREMENT,
+    idVenta INT AUTO_INCREMENT PRIMARY KEY,
     idUsuario INT,
     idCliente INT,
-    fechaVentas DATE,
+    fecha DATE,
     hora TIME,
-    total DOUBLE,
-    estado VARCHAR(225),
-    PRIMARY KEY (codigoVentas),
-    FOREIGN KEY (idCliente) REFERENCES CLIENTE(idclient),
-    FOREIGN KEY (idUsuario) REFERENCES USUARIOS(idUserLog)
+    total DECIMAL(10,2),
+    estado ENUM('COMPLETADA', 'CANCELADA', 'PENDIENTE') DEFAULT 'PENDIENTE',
+    FOREIGN KEY (idCliente) REFERENCES CLIENTE(idCliente) ON DELETE SET NULL,
+    FOREIGN KEY (idUsuario) REFERENCES USUARIOS(idUserLog) ON DELETE SET NULL
 );
 
+-- Tabla de Detalle de Ventas
 CREATE TABLE IF NOT EXISTS DETALLEVENTAS (
-    codigoDetVen INT AUTO_INCREMENT,
-    codVentaDet INT,
-    idProd INT NOT NULL,
+    idDetalle INT AUTO_INCREMENT PRIMARY KEY,
+    idVenta INT,
+    idProducto INT NOT NULL,
     cantidad INT,
-    precioProd DOUBLE,
-    PRIMARY KEY (codigoDetVen),
-    FOREIGN KEY (idProd) REFERENCES PRODUCTOS(idProducto),
-    FOREIGN KEY (codVentaDet) REFERENCES VENTAS(codigoVentas)
+    precio DECIMAL(10,2),
+    FOREIGN KEY (idProducto) REFERENCES PRODUCTOS(idProducto) ON DELETE CASCADE,
+    FOREIGN KEY (idVenta) REFERENCES VENTAS(idVenta) ON DELETE CASCADE
 );
 
+-- Tabla de Facturas
 CREATE TABLE IF NOT EXISTS FACTURAS (
-    idFacturas INT AUTO_INCREMENT,
-    idVentasFac INT,
-    idProdFac INT NOT NULL,
-    idClienteFac INT,
-    idUsuarioFac INT,
-    totalFac DECIMAL,
-    fechaFac DATE,
-    horaFac TIME,
-    cantidadFac INT,
-    PRIMARY KEY (idFacturas),
-    FOREIGN KEY (idVentasFac) REFERENCES VENTAS(codigoVentas),
-    FOREIGN KEY (idProdFac) REFERENCES PRODUCTOS(idProducto),
-    FOREIGN KEY (idClienteFac) REFERENCES CLIENTE(idclient),
-    FOREIGN KEY (idUsuarioFac) REFERENCES USUARIOSDATOS(idUsuario)
+    idFactura INT AUTO_INCREMENT PRIMARY KEY,
+    idVenta INT,
+    idProducto INT NOT NULL,
+    idCliente INT,
+    idUsuario INT,
+    total DECIMAL(10,2),
+    fecha DATE,
+    hora TIME,
+    cantidad INT,
+    FOREIGN KEY (idVenta) REFERENCES VENTAS(idVenta) ON DELETE CASCADE,
+    FOREIGN KEY (idProducto) REFERENCES PRODUCTOS(idProducto) ON DELETE CASCADE,
+    FOREIGN KEY (idCliente) REFERENCES CLIENTE(idCliente) ON DELETE SET NULL,
+    FOREIGN KEY (idUsuario) REFERENCES USUARIOSDATOS(idUsuario) ON DELETE SET NULL
 );
 
+-- Tabla de Devoluciones
 CREATE TABLE IF NOT EXISTS DEVOLUCIONES (
-    idDevoluciones INT AUTO_INCREMENT,
-    codVentasDev INT,
-    idProdDev INT NOT NULL,
-    idUsuarioDev INT,
-    idClienteDev INT,
-    cantidadDev INT,
-    fechaDev DATE,
-    horaDev TIME,
-    PRIMARY KEY (idDevoluciones),
-    FOREIGN KEY (codVentasDev) REFERENCES VENTAS(codigoVentas),
-    FOREIGN KEY (idProdDev) REFERENCES PRODUCTOS(idProducto),
-    FOREIGN KEY (idClienteDev) REFERENCES CLIENTE(idclient),
-    FOREIGN KEY (idUsuarioDev) REFERENCES USUARIOS(idUserLog)
+    idDevolucion INT AUTO_INCREMENT PRIMARY KEY,
+    idVenta INT,
+    idProducto INT NOT NULL,
+    idUsuario INT,
+    idCliente INT,
+    cantidad INT,
+    fecha DATE,
+    hora TIME,
+    FOREIGN KEY (idVenta) REFERENCES VENTAS(idVenta) ON DELETE SET NULL,
+    FOREIGN KEY (idProducto) REFERENCES PRODUCTOS(idProducto) ON DELETE CASCADE,
+    FOREIGN KEY (idCliente) REFERENCES CLIENTE(idCliente) ON DELETE SET NULL,
+    FOREIGN KEY (idUsuario) REFERENCES USUARIOS(idUserLog) ON DELETE SET NULL
 );
